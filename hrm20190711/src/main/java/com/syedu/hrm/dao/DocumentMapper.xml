@@ -30,4 +30,6 @@
      select * from hrm_document where id=#{id}
     </select>
 
+
+
 </mapper>

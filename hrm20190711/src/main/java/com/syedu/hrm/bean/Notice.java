@@ -1,5 +1,7 @@
 package com.syedu.hrm.bean;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * Notice 数据传输类
  * @author qxy
@@ -7,6 +9,7 @@ package com.syedu.hrm.bean;
  * @date 2019-07-29 13:40:41
  * @version 1.0
  */
+@Alias("Notice")
 public class Notice implements java.io.Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -15,6 +18,18 @@ public class Notice implements java.io.Serializable{
 	private String content;
 	private java.util.Date createDate;
 	private int userId;
+
+	//公告对用户来说 -> N:1
+
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	/** setter and getter method */
 	public void setId(int id){

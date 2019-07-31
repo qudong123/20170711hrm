@@ -5,4 +5,37 @@
 
 <mapper namespace="com.syedu.hrm.dao.NoticeMapper">
 
+	<resultMap id="noticeMapResult" type="Notice" autoMapping="true">
+
+		<result column="CREATE_DATE" property="createDate"></result>
+		<association property="user" javaType="User" column="USER_ID"
+					 select="com.syedu.hrm.dao.UserMapper.get"></association>
+	</resultMap>
+
+
+	<!--插入公告-->
+	<insert id="save" useGeneratedKeys="true" keyProperty="id" >
+
+     insert into hrm_notice (TITLE,CONTENT,CREATE_DATE,USER_ID)
+     values(#{title},#{content},#{createDate},#{user.id});
+
+	</insert>
+
+	<!--查询所有的公告-->
+	<select id="find" parameterType="hashmap" resultMap="noticeMapResult">
+      select * from hrm_notice
+	</select>
+
+
+	<!--根据id查询notice-->
+	
+	<select id="get" resultMap="noticeMapResult" >
+      select  * from hrm_notice where id = #{id}
+	</select>
+
+	<!--更新notice-->
+	<update id="update" parameterType="Notice">
+      update hrm_notice set TITLE=#{title} ,content=#{content} where id=#{id}
+	</update>
+
 </mapper>
