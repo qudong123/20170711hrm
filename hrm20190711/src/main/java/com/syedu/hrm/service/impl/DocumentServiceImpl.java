@@ -17,16 +17,12 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     public void saveDocument(Document document) {
-
         documentMapper.save(document);
-
     }
 
     @Override
     public List<Document> findAllDocument() {
-
         List<Document> Documents = documentMapper.findAll(null);
-
         return Documents;
     }
 
