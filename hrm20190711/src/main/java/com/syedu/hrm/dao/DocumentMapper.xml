@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.syedu.hrm.dao.DocumentMapper">
+
+    <resultMap id="documentMapResult" type="Document">
+
+        <result property="createDate" column="CREATE_DATE"></result>
+        <!--根据user_id关联查询user-->
+        <association property="user" javaType="User" column="USER_ID"
+                     select="com.syedu.hrm.dao.UserMapper.get"></association>
+    </resultMap>
+
+
+    <!--添加文档-->
+    <insert id="save" parameterType="Document" useGeneratedKeys="true" keyProperty="id">
+     insert into hrm_document(TITLE,URL,REMARK,CREATE_DATE,USER_ID)
+     values(#{title},#{url},#{remark},#{createDate},#{user.id})
+	</insert>
+
+    <!--查询所有的文档-->
+    <select id="findAll" parameterType="hashmap" resultMap="documentMapResult">
+     select * from hrm_document
+	</select>
+
+
+    <select id="get" resultMap="documentMapResult">
+     select * from hrm_document where id=#{id}
+    </select>
+
+</mapper>
