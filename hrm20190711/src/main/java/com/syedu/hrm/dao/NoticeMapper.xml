@@ -14,14 +14,14 @@
 
 
 	<!--插入公告-->
+
 	<insert id="save" useGeneratedKeys="true" keyProperty="id" >
 
      insert into hrm_notice (TITLE,CONTENT,CREATE_DATE,USER_ID)
      values(#{title},#{content},#{createDate},#{user.id});
 
 	</insert>
-
-	<!--查询所有的公告-->
+	<!--查询所有的公告-->	
 	<select id="find" parameterType="hashmap" resultMap="noticeMapResult">
       select * from hrm_notice
 	</select>
