@@ -1,5 +1,8 @@
 package com.syedu.hrm.dao;
 
+import com.syedu.hrm.base.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
 /**
  * EmployeeMapper 数据访问类
  * @author qxy
@@ -7,7 +10,8 @@ package com.syedu.hrm.dao;
  * @date 2019-07-29 13:40:41
  * @version 1.0
  */
-public interface EmployeeMapper {
+@Mapper
+public interface EmployeeMapper extends BaseMapper {
 
 
 

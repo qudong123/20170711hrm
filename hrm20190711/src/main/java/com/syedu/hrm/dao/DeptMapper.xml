@@ -5,4 +5,15 @@
 
 <mapper namespace="com.syedu.hrm.dao.DeptMapper">
 
+	<select id="find" parameterType="hashmap" resultType="Dept">
+
+      select * from hrm_dept order by id asc
+
+	</select>
+
+
+
+
+
+
 </mapper>

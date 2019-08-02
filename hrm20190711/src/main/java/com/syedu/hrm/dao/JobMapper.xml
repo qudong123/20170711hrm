@@ -5,4 +5,8 @@
 
 <mapper namespace="com.syedu.hrm.dao.JobMapper">
 
+	<select id="find" resultType="Job" parameterType="hashmap">
+       select * from hrm_job order by id asc
+	</select>
+
 </mapper>

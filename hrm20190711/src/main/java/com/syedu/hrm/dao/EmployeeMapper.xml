@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.syedu.hrm.dao.EmployeeMapper">
+
+
+    <insert id="save" parameterType="Employee" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+
+    insert into hrm_employee(DEPT_ID,JOB_ID,NAME,CARD_ID,ADDRESS,POST_CODE,TEL,PHONE,QQ_NUM,EMAIL,SEX,PARTY,BIRTHDAY,RACE,EDUCATION,
+    SPECIALITY,PICTURE,HOBBY,REMARK,CREATE_DATE)
+    values (#{dept.id},#{job.id},#{name},#{cardId},#{address},#{postCode},#{tel},#{phone},#{qqNum},#{email},
+    #{sex},#{party},#{birthday},#{race},#{education},#{speciality},#{picture},#{hobby},#{remark},#{createDate});
+	</insert>
 
 </mapper>

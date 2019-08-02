@@ -1,5 +1,8 @@
 package com.syedu.hrm.bean;
 
+import org.apache.ibatis.type.Alias;
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * Employee 数据传输类
  * @author qxy
@@ -7,7 +10,14 @@ package com.syedu.hrm.bean;
  * @date 2019-07-29 13:40:41
  * @version 1.0
  */
+@Alias("Employee")
 public class Employee implements java.io.Serializable{
+
+
+    //员工管理的dept和job
+	 private Dept dept;
+	 private Job job;
+
 
 	private static final long serialVersionUID = 1L;
 	private int id;
@@ -23,6 +33,8 @@ public class Employee implements java.io.Serializable{
 	private String email;
 	private int sex;
 	private String party;
+	//由于页面上过来的是字符串
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private java.util.Date birthday;
 	private String race;
 	private String education;
@@ -31,6 +43,23 @@ public class Employee implements java.io.Serializable{
 	private String hobby;
 	private String remark;
 	private java.util.Date createDate;
+
+
+	public Dept getDept() {
+		return dept;
+	}
+
+	public void setDept(Dept dept) {
+		this.dept = dept;
+	}
+
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
+	}
 
 	/** setter and getter method */
 	public void setId(int id){
